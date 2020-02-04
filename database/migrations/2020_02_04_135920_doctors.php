@@ -16,9 +16,9 @@ class Doctors extends Migration
         Schema::create('doctors', function (Blueprint $table){
             $table->bigIncrements('id');
             $table->integer('hospital_id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('phone');
+            $table->integer('user_id');
+            $table->string('job');
+            $table->string('about');
             $table->timestamps();
         });
     }
