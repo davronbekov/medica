@@ -28,116 +28,13 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-                        @if(auth()->user()->isRoleExist('abonents'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-user"></i> Clients
-                            </a>
-                        </li>
-                        @endif
-
-                        @if(auth()->user()->isRoleExist('iptv'))
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="nav_iptv" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-tv"></i> IPTV
-                            </a>
-                            <div class="dropdown-menu dropdown-primary" aria-labelledby="nav_iptv">
-                                <a class="dropdown-item" href="{{ route('web.iptv.channels.index') }}">Channels</a>
-                                <a class="dropdown-item" href="{{ route('web.iptv.categories.index') }}">Categories</a>
-                                <a class="dropdown-item" href="{{ route('web.iptv.epg.index') }}">Epg | Timeshift</a>
-                            </div>
-                        </li>
-
-                        @endif
-
-                        @if(auth()->user()->isRoleExist('content'))
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="nav_iptv" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-film"></i> Content
-                            </a>
-                            <div class="dropdown-menu dropdown-primary" aria-labelledby="nav_iptv">
-                                <a class="dropdown-item" href="{{ route('web.content.categories.main.index') }}">Categories</a>
-                                <a class="dropdown-item" href="{{ route('web.content.genres.index') }}">Genres</a>
-                                <a class="dropdown-item" href="{{ route('web.content.countries.index') }}">Countries</a>
-                                <a class="dropdown-item" href="{{ route('web.content.people.index') }}">People</a>
-                                <hr/>
-                                <a class="dropdown-item" href="{{ route('web.content.concerts.main.index') }}">Concerts (LIVE)</a>
-                            </div>
-                        </li>
-                        @endif
-
-                        @if(auth()->user()->isRoleExist('reports'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="fa fa-sort"></i> Statistics
-                            </a>
-                        </li>
-                        @endif
-
-                        @if(auth()->user()->isRoleExist('ads'))
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="nav_iptv" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <i class="fa fa-buysellads"></i> Ads
-                            </a>
-                            <div class="dropdown-menu dropdown-primary" aria-labelledby="nav_iptv">
-                                <a class="dropdown-item" href="{{ route('web.ads.carousel.index') }}">Carousel</a>
-                                <a class="dropdown-item" href="{{ route('web.ads.partners.index') }}">Partners</a>
-                            </div>
-                        </li>
-                        @endif
-
-                        @if(auth()->user()->isRoleExist('payments'))
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="nav_iptv" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-shopping-cart"></i> Payments
-                                </a>
-                                <div class="dropdown-menu dropdown-primary" aria-labelledby="nav_iptv">
-                                    <a class="dropdown-item" href="{{ route('web.payments.types.index') }}">Types</a>
-                                    <a class="dropdown-item" href="{{ route('web.payments.tariffs.main.index') }}">Tariffs</a>
-                                </div>
-                            </li>
-                        @endif
-
-                        @if(auth()->user()->isRoleExist('admin'))
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="nav_iptv" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-link"></i> Network
-                                </a>
-                                <div class="dropdown-menu dropdown-primary" aria-labelledby="nav_iptv">
-                                    <a class="dropdown-item" href="{{ route('web.network.ips.index') }}">Network</a>
-                                    <a class="dropdown-item" href="{{ route('web.network.collections.main.index') }}">Collections</a>
-                                    <a class="dropdown-item" href="{{ route('web.network.groups.main.index') }}">Groups</a>
-                                </div>
-                            </li>
-
-                        @endif
-
-                        @if(auth()->user()->isRoleExist('admin'))
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" id="nav_iptv" data-toggle="dropdown"
-                                   aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-cog"></i> Settings
-                                </a>
-                                <div class="dropdown-menu dropdown-primary" aria-labelledby="nav_iptv">
-                                    <a class="dropdown-item" href="{{ route('web.content.mobiletv.index') }}">Mobile TV</a>
-                                    <a class="dropdown-item" href="{{ route('web.content.home.index') }}">Home page | Mobile</a>
-                                    <a class="dropdown-item" href="{{ route('web.abonents.profile.index') }}">Profile | User</a>
-                                    <a class="dropdown-item" href="{{ route('web.content.modules.main.index') }}">Modules</a>
-                                    <hr>
-                                    <a class="dropdown-item" href="#">CPanel's users</a>
-                                </div>
-                            </li>
-
-                        @endif
-
-                    </ul>
+{{--                    <ul class="navbar-nav mr-auto">--}}
+{{--                        <li class="nav-item">--}}
+{{--                            <a class="nav-link" href="#">--}}
+{{--                                <i class="fa fa-user"></i> Clients--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -183,7 +80,7 @@
     </div>
     <footer class="card-footer ">
         <div class="text-center">
-            © 2016 - <?= date('Y') ?> <a href="http://itv.uz/">iTV</a><br/>
+            © <?= date('Y') ?>
             Developed with <i class="fa fa-heart text-danger"></i> by <a href="https://github.com/davronbekov">Otabek Davronbekov</a> <br/>in 2019
         </div>
     </footer>
