@@ -18,11 +18,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/home', function () {
+    return view('welcome');
+});
+
 Route::group(['prefix' => 'web'], function (){
 
     Route::group(['namespace' => 'Web\Auth', 'prefix' => 'auth', 'as' => 'web.auth.'], function (Router $router){
         $router->get('/login', 'LoginController@showLoginForm')->name('login');
         $router->post('/login', 'LoginController@login')->name('login');
+
+        $router->get('/logout', 'LoginController@logout')->name('logout');
+        $router->post('/logout', 'LoginController@logout')->name('logout');
 
         $router->get('/register', 'RegisterController@showRegistrationForm')->name('register');
         $router->post('/register', 'RegisterController@register')->name('register');

@@ -81,7 +81,7 @@
     <footer class="card-footer ">
         <div class="text-center">
             © <?= date('Y') ?>
-            Developed with <i class="fa fa-heart text-danger"></i> by <a href="https://github.com/davronbekov">Otabek Davronbekov</a> <br/>in 2019
+            Developed by Medica TEAM
         </div>
     </footer>
     <script src="{{ asset('bootstrap/js/jquery-3.2.1.min.js') }}"></script>
