@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Routing\Router;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,18 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['namespace' => 'Api'], function () {
+
+    Route::group(['namespace' => 'User', 'prefix' => 'user'], function (Router $router){
+        $router->get('auth/failed', 'AuthController@actionFailed')->name('api.user.auth.failed');
+        $router->get('auth/login', 'AuthController@actionLogin');
+    });
+
+    Route::group(['middleware' => 'api.auth:api'], function(){
+
+        Route::get('/user', function (Request $request) {
+            return $request->user();
+        });
+    });
+
 });

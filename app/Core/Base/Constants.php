@@ -30,4 +30,11 @@ class Constants
     public static $API_PARAMS = 'params';
     public static $API_FILES = 'files';
 
+    public static $API_USER_AUTH = 'user';
+    public static $API_USER_AUTH_API_TOKEN = 'api_token';
+    public static $API_USER_NAME = 'name';
+    public static $API_USER_EMAIL = 'email';
+    public static $API_USER_PHONE = 'phone';
+    public static $API_USER_TYPE = 'type';
+
 }

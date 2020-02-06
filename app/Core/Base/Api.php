@@ -53,7 +53,10 @@ class Api extends Controller
 
     protected function setCode($code){
         $this->code = $code;
-        $this->message = trans('codes.'.$code);
+    }
+
+    protected function setMessage($message){
+        $this->message = $message;
     }
 
     /**

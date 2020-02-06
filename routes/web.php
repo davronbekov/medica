@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return view('welcome');
-});
+})->middleware('api.auth');
 
 Route::group(['prefix' => 'web'], function (){
 
