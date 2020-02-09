@@ -37,4 +37,16 @@ class Constants
     public static $API_USER_PHONE = 'phone';
     public static $API_USER_TYPE = 'type';
 
+    public static $API_HOSPITAL = 'hospital';
+    public static $API_HOSPITALS = 'hospitals';
+    public static $API_HOSPITALS_NAME = 'name';
+    public static $API_HOSPITALS_KEYWORDS = 'keywords';
+    public static $API_HOSPITALS_ADDRESS = 'address';
+
+    public static $API_DOCTORS = 'doctors';
+    public static $API_DOCTORS_NAME = 'name';
+    public static $API_DOCTORS_EMAIL = 'email';
+    public static $API_DOCTORS_JOB = 'job';
+    public static $API_DOCTORS_ABOUT = 'about';
+
 }

@@ -54,9 +54,9 @@ class Hospitals extends Model
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function relationDoctors(){
-        return $this->belongsTo(Doctors::class, 'id', 'hospital_id');
+        return $this->hasMany(Doctors::class, 'hospital_id', 'id');
     }
 }

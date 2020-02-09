@@ -8,6 +8,7 @@
 
 namespace App\Core\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -18,6 +19,8 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $user_id
  * @property String $job
  * @property String $about
+ *
+ * @property-read User $relationUsers
  */
 class Doctors extends Model
 {
@@ -31,5 +34,12 @@ class Doctors extends Model
             ->first();
 
         return $item;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function relationUsers(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

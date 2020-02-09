@@ -20,6 +20,7 @@ class InfoResource extends Resources
         /**
          * @var User|InfoResource $this
          */
+
         return [
             Constants::$API_USER_NAME => $this->name,
             Constants::$API_USER_EMAIL => $this->email,
