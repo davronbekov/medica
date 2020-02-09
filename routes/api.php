@@ -36,4 +36,8 @@ Route::group(['namespace' => 'Api'], function () {
         $router->get('show', 'HospitalsController@actionShow')->name('api.hospitals.show');
     });
 
+    Route::group(['prefix' => 'doctors'], function (Router $router) {
+        $router->get('show', 'DoctorsController@actionShow')->name('api.doctors.show');
+    });
+
 });

@@ -43,10 +43,18 @@ class Constants
     public static $API_HOSPITALS_KEYWORDS = 'keywords';
     public static $API_HOSPITALS_ADDRESS = 'address';
 
+    public static $API_DOCTOR = 'doctor';
     public static $API_DOCTORS = 'doctors';
     public static $API_DOCTORS_NAME = 'name';
     public static $API_DOCTORS_EMAIL = 'email';
+    public static $API_DOCTORS_PHONE = 'phone';
     public static $API_DOCTORS_JOB = 'job';
     public static $API_DOCTORS_ABOUT = 'about';
+
+    public static $API_DOCTOR_REVIEWS = 'reviews';
+    public static $API_DOCTOR_REVIEWS_USER_NAME = 'name';
+    public static $API_DOCTOR_REVIEWS_MARK = 'mark';
+    public static $API_DOCTOR_REVIEWS_COMMENTS = 'comments';
+
 
 }

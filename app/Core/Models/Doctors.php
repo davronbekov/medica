@@ -21,6 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property String $about
  *
  * @property-read User $relationUsers
+ * @property-read Doctor_reviews $relationReviews
  */
 class Doctors extends Model
 {
@@ -30,7 +31,7 @@ class Doctors extends Model
     public function getItem($id = null){
         $item = parent::query();
         $item = $item
-            ->where('id', '=', $id)
+            ->where('user_id', '=', $id)
             ->first();
 
         return $item;
@@ -41,5 +42,12 @@ class Doctors extends Model
      */
     public function relationUsers(){
         return $this->belongsTo(User::class, 'user_id', 'id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function relationReviews(){
+        return $this->hasMany(Doctor_reviews::class, 'doctor_id', 'user_id');
     }
 }
