@@ -8,6 +8,7 @@
 
 namespace App\Core\Models;
 
+use Exception;
 use App\User;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +27,23 @@ class Doctor_reviews extends Model
 {
     protected $table = 'doctor_reviews';
     public $timestamps = false;
+
+    /**
+     * @param array $data
+     * @return bool
+     */
+    public function insertItem($data = []){
+        try{
+            $this->doctor_id = $data['doctor_id'];
+            $this->user_id = $data['user_id'];
+            $this->mark = $data['mark'];
+            $this->comments = $data['comments'];
+            $this->save();
+            return true;
+        }catch(Exception $exception){
+            return false;
+        }
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

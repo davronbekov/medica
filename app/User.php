@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Core\Models\Doctors;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -85,7 +86,15 @@ class User extends Authenticatable
     }
 
     public function getUserType(){
-        return 'client';
+        /**
+         * @var Doctors $doctors
+         */
+        $doctors = app(Doctors::class);
+        $doctors = $doctors->getItem($this->id);
+        if(is_null($doctors))
+            return "client";
+
+        return "doctor";
     }
 
     /**

@@ -29,6 +29,10 @@ Route::group(['namespace' => 'Api'], function () {
             $router->post('auth/logout', 'AuthController@actionLogout')->name('api.user.auth.logout');
         });
 
+        Route::group(['prefix' => 'reviews'], function (Router $router){
+            $router->post('add', 'ReviewsController@actionAdd')->name('api.reviews.add');
+        });
+
     });
 
     Route::group(['prefix' => 'hospitals'], function (Router $router) {
