@@ -83,6 +83,7 @@ class AuthController extends Api
             'name' => 'required',
             'email' => 'required|unique:users,email',
             'password' => 'required|min:8',
+            'phone' => 'required',
         ]);
 
         if($validator->fails()){
@@ -94,6 +95,7 @@ class AuthController extends Api
         $name = $request->input('name');
         $email = $request->input('email');
         $password = $request->input('password');
+        $phone = $request->input('phone');
 
         /**
          * @var User $user
@@ -103,6 +105,7 @@ class AuthController extends Api
             'name' => $name,
             'email' => $email,
             'password' => $password,
+            'phone' => $phone
         ]);
 
         if($check){

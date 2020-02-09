@@ -109,6 +109,7 @@ class User extends Authenticatable
         try{
             $this->name = $data['name'];
             $this->email = $data['email'];
+            $this->phone = $data['phone'];
             $this->password = Hash::make($data['password']);
             return true;
         }catch (Exception $exception){
