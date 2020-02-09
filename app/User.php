@@ -17,6 +17,7 @@ use Illuminate\Support\Str;
  * @property String $email
  * @property String $phone
  * @property String $api_token
+ * @property String $password
  */
 class User extends Authenticatable
 {
@@ -85,5 +86,33 @@ class User extends Authenticatable
 
     public function getUserType(){
         return 'client';
+    }
+
+    /**
+     * @return bool
+     */
+    public function logout(){
+        try{
+            $this->api_token = null;
+            $this->save();
+            return true;
+        }catch(Exception $exception){
+            return false;
+        }
+    }
+
+    /**
+     * @param array $data
+     * @return bool
+     */
+    public function register($data = []){
+        try{
+            $this->name = $data['name'];
+            $this->email = $data['email'];
+            $this->password = Hash::make($data['password']);
+            return true;
+        }catch (Exception $exception){
+            return false;
+        }
     }
 }

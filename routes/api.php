@@ -19,14 +19,16 @@ Route::group(['namespace' => 'Api'], function () {
 
     Route::group(['namespace' => 'User', 'prefix' => 'user'], function (Router $router){
         $router->get('auth/failed', 'AuthController@actionFailed')->name('api.user.auth.failed');
-        $router->get('auth/login', 'AuthController@actionLogin');
+        $router->post('auth/login', 'AuthController@actionLogin');
+        $router->post('auth/register', 'AuthController@actionRegister')->name('api.user.auth.register');
     });
 
     Route::group(['middleware' => 'api.auth:api'], function(){
 
-        Route::get('/user', function (Request $request) {
-            return $request->user();
+        Route::group(['namespace' => 'User', 'prefix' => 'user'], function (Router $router){
+            $router->post('auth/logout', 'AuthController@actionLogout')->name('api.user.auth.logout');
         });
+
     });
 
 });
