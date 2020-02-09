@@ -10,6 +10,7 @@ namespace App\Http\Controllers\Api\User;
 
 use App\Core\Base\Api;
 use App\Core\Base\Constants;
+use App\Core\Resources\User\InfoResource;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -56,13 +57,7 @@ class AuthController extends Api
         $user->updateApiToken();
 
         $this->body = [
-            Constants::$API_USER_AUTH => [
-                Constants::$API_USER_NAME => $user->name,
-                Constants::$API_USER_EMAIL => $user->email,
-                Constants::$API_USER_PHONE => $user->phone,
-                Constants::$API_USER_TYPE => $user->getUserType(),
-                Constants::$API_USER_AUTH_API_TOKEN => $user->api_token,
-            ],
+            Constants::$API_USER_AUTH => new InfoResource($user),
         ];
 
         return $this->composeJson($this->composeData());
@@ -86,8 +81,8 @@ class AuthController extends Api
     public function actionRegister(Request $request){
         $validator = Validator::make($request->all(), [
             'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+            'email' => 'required|unique:users,email',
+            'password' => 'required|min:8',
         ]);
 
         if($validator->fails()){
@@ -114,13 +109,7 @@ class AuthController extends Api
             $user->updateApiToken();
 
             $this->body = [
-                Constants::$API_USER_AUTH => [
-                    Constants::$API_USER_NAME => $user->name,
-                    Constants::$API_USER_EMAIL => $user->email,
-                    Constants::$API_USER_PHONE => $user->phone,
-                    Constants::$API_USER_TYPE => $user->getUserType(),
-                    Constants::$API_USER_AUTH_API_TOKEN => $user->api_token,
-                ],
+                Constants::$API_USER_AUTH => new InfoResource($user),
             ];
 
             return $this->composeJson($this->composeData());
