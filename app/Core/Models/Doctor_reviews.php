@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor_reviews extends Model
 {
     protected $table = 'doctor_reviews';
-    public $timestamps = false;
 
     /**
      * @param array $data

@@ -26,7 +26,6 @@ use Illuminate\Database\Eloquent\Model;
 class Doctors extends Model
 {
     protected $table = 'doctors';
-    public $timestamps = false;
 
     public function getItem($id = null){
         $item = parent::query();

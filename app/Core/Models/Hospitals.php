@@ -23,7 +23,6 @@ use Illuminate\Database\Eloquent\Model;
 class Hospitals extends Model
 {
     protected $table = 'hospitals';
-    public $timestamps = false;
 
     public $total_items = 18;
 
